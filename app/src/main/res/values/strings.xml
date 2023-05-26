@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">FirebaseAuthPhone</string>
+    <string name="title_activity_register">RegisterActivity</string>
+    <string name="first_name">first_name</string>
+    <string name="verify">Verify</string>
+    <string name="title_activity_home">HomeActivity</string>
+</resources>

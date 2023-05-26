@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.example.firebaseauthphone.ui.register.RegisterViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.register.RegisterActivity"
+        android:background="@drawable/background">
+        <TableLayout
+            android:id="@+id/tab_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/title"
+                android:text="Register"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:textStyle="bold"
+                android:textColor="@color/white"
+                android:textSize="25sp"
+                android:gravity="center"
+                android:padding="20dp" />
+        </TableLayout>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guide_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".35" />
+
+        <LinearLayout
+            android:id="@+id/layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/guide_line">
+
+            <EditText
+                android:id="@+id/firstname"
+                app:error="@{vm.firstnameError}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="@={vm.firstname}"
+                android:padding="15dp"
+                android:inputType="text"
+                android:gravity="center"
+                android:hint="First name"/>
+
+            <EditText
+                android:id="@+id/lastname"
+                app:error="@{vm.lastnameError}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="22sp"
+                android:text="@={vm.lastname}"
+                android:padding="15dp"
+                android:inputType="text"
+                android:gravity="center"
+                android:hint="Last name" />
+
+            <EditText
+                android:id="@+id/username"
+                app:error="@{vm.usernameError}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="22sp"
+                android:text="@={vm.username}"
+                android:padding="15dp"
+                android:inputType="text"
+                android:gravity="center"
+                android:hint="User name" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.hbb20.CountryCodePicker
+                    android:id="@+id/country_code"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:ccp_defaultNameCode="EG"
+                    app:ccp_contentColor="@color/white"
+                    android:paddingVertical="10dp"
+                    />
+                <EditText
+                    android:id="@+id/phone"
+                    app:error="@{vm.phoneError}"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="22sp"
+                    android:text="@={vm.phone}"
+                    android:padding="15dp"
+                    android:inputType="phone"
+                    android:gravity="center"
+                    android:hint="Phone" />
+            </LinearLayout>
+
+
+            <Button
+                android:id="@+id/signButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:onClick="@{()->vm.createAccount()}"
+                android:text="Sign in"
+                android:textColor="@color/white"
+                android:textSize="22sp"
+                android:padding="15dp"
+                android:backgroundTint="@color/blue"
+                />
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
